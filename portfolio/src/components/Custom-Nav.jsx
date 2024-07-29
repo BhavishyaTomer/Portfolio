@@ -7,7 +7,7 @@ import navIcon3 from '../assets/img/nav-icon3.svg';
 import { HashLink } from 'react-router-hash-link';
 import { BrowserRouter as Router } from "react-router-dom";
 import Scrollspy from 'react-scrollspy';
-// import resume from "../assets/img/resume.pdf"
+import resume from "../assets/resume.pdf"
 
 const CustomNav = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -51,7 +51,7 @@ const CustomNav = () => {
                 <a href="https://www.linkedin.com/in/bhavishya-tomer-9696381b0/"><img src={navIcon1} alt="" /></a>
                 <a href="https://www.instagram.com/bhavishya_tomer?igsh=MXc2OWV4c3dlemNncg=="><img src={navIcon3} alt="" /></a>
               </div>
-              <a href="" download>
+              <a href={resume} download>
                 <button className="btn btn-primary"><span>Let’s Connect</span></button>
               </a>
             </span>

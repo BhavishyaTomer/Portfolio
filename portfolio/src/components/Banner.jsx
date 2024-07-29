@@ -5,7 +5,7 @@ import headerImg from"../assets/img/my.png"
 import { useState,useEffect } from 'react'
 import 'animate.css'
 import TrackVisibility from 'react-on-screen';
-// import resume from "../assets/img/resume.pdf"
+import resume from "../assets/resume.pdf"
 const Banner = () => {
     const [loopNum,setLoopNum]=useState(0)
     const[isDeleting,setIsDeleting]=useState(false)
@@ -55,7 +55,7 @@ const Banner = () => {
                     Welcome to my Portfolio </span>
                 <h1>{`Hi I'm Bhavishya `}<span className='wrap'>{text}</span></h1>
                 <p>Pro at React and Angular, I dabble in Firebase, Tailwind, Node, Express, MongoDB, and Postgres. Oh, and I also speak React Native. Basically, I collect frameworks like Pokémon.</p>
-                <a href="" download>
+                <a href={resume} download>
                 <button onClick={()=>console.log("working")}>Lets Connect <ArrowRightCircle size={25} /></button>
                 </a>
                 </div>}
