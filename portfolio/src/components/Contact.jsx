@@ -25,7 +25,7 @@ const Contact = () => {
         e.preventDefault();
         setButtonText("Sending...");
         console.log("hitting")
-        let response = await fetch("http://localhost:5000/sendEmail", {
+        let response = await fetch("https://portfolio-backend-b7l2.onrender.com/sendEmail", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
