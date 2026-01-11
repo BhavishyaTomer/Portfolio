@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+.game-ui {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  font-family: 'Press Start 2P', monospace;
+  pointer-events: none;
+}
+
+.ui-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.health-display {
+  display: flex;
+  gap: 5px;
+  font-size: 20px;
+}
+
+.heart.full {
+  color: #ff0000;
+  text-shadow: 0 0 5px #ff0000;
+  animation: heartbeat 1s infinite;
+}
+
+.heart.empty {
+  color: #333;
+  opacity: 0.3;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.level-display {
+  font-size: 16px;
+  color: #FFD700;
+  text-shadow: 
+    2px 2px 0 #000,
+    0 0 10px rgba(255, 215, 0, 0.5);
+  padding: 10px 20px;
+  background: rgba(139, 69, 19, 0.8);
+  border: 2px solid #FFD700;
+}
+
+.xp-display {
+  font-size: 14px;
+  color: #FFD700;
+  text-shadow: 0 0 5px #FFD700;
+}
+
+.controls-hint {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.9);
+  padding: 12px 24px;
+  border: 2px solid #FFD700;
+  font-size: 11px;
+  color: #FFD700;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .ui-top {
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+  }
+  
+  .health-display {
+    font-size: 16px;
+  }
+  
+  .level-display {
+    font-size: 12px;
+    padding: 8px 16px;
+  }
+  
+  .xp-display {
+    font-size: 11px;
+  }
+  
+  .controls-hint {
+    font-size: 9px;
+    padding: 8px 16px;
+    bottom: 10px;
+  }
+}

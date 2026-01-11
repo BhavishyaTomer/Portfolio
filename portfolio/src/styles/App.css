@@ -1,6 +1,3 @@
-/* Minecraft Portfolio - Complete Revamp */
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-
 * {
   margin: 0;
   padding: 0;
@@ -28,36 +25,20 @@ body {
   position: relative;
 }
 
+/* Pixel perfect styling */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Press Start 2P', monospace;
   font-weight: bold;
 }
 
-p, a, li, button, ul {
-  margin: 0;
-  padding: 0;
-  line-height: normal;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: none;
-}
-
 button {
-  border: 0;
-  background-color: transparent;
-  cursor: pointer;
   font-family: 'Press Start 2P', monospace;
+  cursor: pointer;
+  border: none;
 }
 
-input:focus, textarea:focus, select:focus {
-  outline: none;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .minecraft-app {
-    font-size: 12px;
-  }
+input, textarea {
+  font-family: 'Arial', monospace;
 }

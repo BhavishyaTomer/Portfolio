@@ -1,23 +1,72 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import CustomNav from './components/Custom-Nav';
-import Banner from './components/Banner';
-import Skills from './components/Skills';
-import Projects from './components/Projects';
-import Contact from './components/Contact';
-import { Footer } from './components/Footer';
-const App = () => {
-  return (
-    <div className='App'>
-    <CustomNav/>
-    <Banner/>
-    <Skills/>
-    <Projects/>
-    <Contact/>
-    <Footer />
-    </div>
-  )
-}
+import GameScreen from './components/GameScreen';
+import GameUI from './components/GameUI';
+import Inventory from './components/Inventory';
 
-export default App
+const App = () => {
+  const [gameState, setGameState] = useState({
+    currentLevel: 'spawn', // spawn, skills, projects, contact
+    inventory: [],
+    health: 20,
+    hungerBar: 10,
+    experience: 0,
+    visitedAreas: [],
+  });
+
+  const handleLevelChange = (level) => {
+    setGameState(prev => ({
+      ...prev,
+      currentLevel: level,
+      visitedAreas: [...new Set([...prev.visitedAreas, level])]
+    }));
+  };
+
+  const addToInventory = (item) => {
+    // If it's a health pickup, restore health
+    if (item.type === 'health') {
+      setGameState(prev => ({
+        ...prev,
+        health: Math.min(20, prev.health + item.amount),
+        experience: prev.experience + 5
+      }));
+    } else {
+      setGameState(prev => ({
+        ...prev,
+        inventory: [...prev.inventory, item],
+        experience: prev.experience + 10
+      }));
+    }
+  };
+
+  // Check for death and respawn
+  useEffect(() => {
+    if (gameState.health <= 0) {
+      setTimeout(() => {
+        alert('You died! Respawning at spawn...');
+        setGameState(prev => ({
+          ...prev,
+          health: 20,
+          currentLevel: 'spawn',
+          inventory: [] // Optional: lose items on death
+        }));
+      }, 100);
+    }
+  }, [gameState.health]);
+
+  return (
+    <div className='minecraft-app'>
+      <GameScreen 
+        currentLevel={gameState.currentLevel} 
+        onLevelChange={handleLevelChange} 
+        onCollectItem={addToInventory}
+        gameState={gameState}
+        setGameState={setGameState}
+      />
+      <GameUI gameState={gameState} />
+      <Inventory items={gameState.inventory} />
+    </div>
+  );
+};
+
+export default App;

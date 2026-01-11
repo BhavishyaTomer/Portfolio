@@ -1,0 +1,343 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+.game-screen {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #87CEEB 0%, #E0F6FF 50%, #90EE90 100%);
+  border: 4px solid #333;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.level {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* SPAWN AREA */
+.spawn-area {
+  background: linear-gradient(180deg, #87CEEB 0%, #E0F6FF 50%, #90EE90 100%);
+}
+
+.background-blocks {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.sky {
+  position: absolute;
+  width: 100%;
+  height: 60%;
+  background: linear-gradient(180deg, #87CEEB 0%, #E0F6FF 100%);
+  z-index: 1;
+}
+
+.terrain-block {
+  position: absolute;
+  width: 6.67%;
+  height: 6.67%;
+  background: linear-gradient(135deg, #2d5016 0%, #3d6e1f 100%);
+  border: 1px solid #1a3009;
+  box-shadow: inset -2px -2px 0 rgba(0, 0, 0, 0.3), inset 2px 2px 0 rgba(255, 255, 255, 0.1);
+  z-index: 2;
+}
+
+.tree {
+  position: absolute;
+  width: 40px;
+  height: 80px;
+  z-index: 3;
+}
+
+.tree::before {
+  content: '';
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: #2d5016;
+  left: -10px;
+  top: 0;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.3);
+}
+
+.tree::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 60px;
+  background: #8B4513;
+  left: 10px;
+  top: 40px;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+}
+
+.welcome-sign {
+  position: absolute;
+  left: 50%;
+  bottom: 50px;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.sign-post {
+  width: 10px;
+  height: 60px;
+  background: #8B4513;
+  margin: 0 auto;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+}
+
+.sign-board {
+  width: 200px;
+  background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 10px;
+  border: 3px solid #654321;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.5);
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+}
+
+.sign-board h2 {
+  color: #FFFF00;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
+}
+
+.sign-board p {
+  color: #fff;
+  font-size: 8px;
+  margin: 5px 0;
+}
+
+/* SKILLS QUEST */
+.skills-quest {
+  background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
+}
+
+.quest-background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.lava-pool {
+  position: absolute;
+  width: 200px;
+  height: 100px;
+  background: linear-gradient(135deg, #FF4500 0%, #FF6347 50%, #FF4500 100%);
+  animation: lava-glow 2s infinite;
+  border-radius: 50% 40%;
+  box-shadow: 0 0 30px rgba(255, 69, 0, 0.7);
+  z-index: 1;
+}
+
+@keyframes lava-glow {
+  0%, 100% { box-shadow: 0 0 30px rgba(255, 69, 0, 0.7); }
+  50% { box-shadow: 0 0 50px rgba(255, 69, 0, 1); }
+}
+
+/* PROJECTS QUEST */
+.projects-quest {
+  background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
+}
+
+.dungeon-background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.stone-block {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: linear-gradient(135deg, #404040 0%, #505050 100%);
+  border: 1px solid #202020;
+  box-shadow: inset -2px -2px 0 rgba(0, 0, 0, 0.5), inset 2px 2px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* CONTACT QUEST */
+.contact-quest {
+  background: linear-gradient(180deg, #0a0a1a 0%, #1a0a2a 100%);
+}
+
+.portal-background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.end-portal-frame {
+  width: 150px;
+  height: 200px;
+  border: 3px solid #14085b;
+  background: #0a0a0a;
+  position: relative;
+  z-index: 2;
+}
+
+.end-portal {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, #7e0de1, #2a0845);
+  animation: portal-pulse 2s infinite;
+  box-shadow: inset 0 0 30px #7e0de1;
+}
+
+@keyframes portal-pulse {
+  0%, 100% { box-shadow: inset 0 0 30px #7e0de1; }
+  50% { box-shadow: inset 0 0 50px #a020e0; }
+}
+
+/* QUEST TITLE STYLES */
+.quest-title {
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 20;
+  background: rgba(0, 0, 0, 0.85);
+  padding: 12px 24px;
+  border: 2px solid #FFD700;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+  font-family: 'Press Start 2P', monospace;
+}
+
+.quest-title h2 {
+  color: #FFD700;
+  font-size: 14px;
+  margin-bottom: 6px;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.8);
+}
+
+.quest-title p {
+  color: #fff;
+  font-size: 9px;
+}
+
+.dungeon-title {
+  border-color: #8B4513;
+  box-shadow: 0 0 20px rgba(139, 69, 19, 0.5);
+}
+
+.portal-title {
+  border-color: #7e0de1;
+  box-shadow: 0 0 20px rgba(126, 13, 225, 0.5);
+}
+
+/* CONTACT FORM */
+.contact-block {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
+  padding: 30px;
+  border: 4px solid #654321;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+  z-index: 15;
+  font-family: 'Press Start 2P', monospace;
+}
+
+.block-header {
+  color: #FFD700;
+  margin-bottom: 20px;
+  font-size: 14px;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.8);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-input {
+  padding: 10px;
+  background: #2a2a1a;
+  border: 2px solid #654321;
+  color: #FFD700;
+  font-family: monospace;
+  font-size: 12px;
+  box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.5);
+}
+
+.form-input::placeholder {
+  color: #8B7355;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #FFD700;
+  box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.5), 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.send-button {
+  padding: 12px;
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  color: #000;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 12px;
+  border: 3px solid #654321;
+  cursor: pointer;
+  box-shadow: 0 4px 0 #654321;
+  transition: all 0.1s;
+}
+
+.send-button:hover {
+  background: linear-gradient(135deg, #FFED4E 0%, #FFB90F 100%);
+}
+
+.send-button:active {
+  transform: translateY(4px);
+  box-shadow: 0 0 0 #654321;
+}
+
+.social-block {
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+  width: 300px;
+  background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
+  padding: 20px;
+  border: 4px solid #654321;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+  z-index: 15;
+  font-family: monospace;
+}
+
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.social-link {
+  color: #FFD700;
+  text-decoration: none;
+  font-size: 12px;
+  padding: 8px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid #654321;
+  border-radius: 0;
+  transition: all 0.2s;
+}
+
+.social-link:hover {
+  background: rgba(255, 215, 0, 0.2);
+  text-decoration: underline;
+}
